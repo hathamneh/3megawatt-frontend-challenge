@@ -1,9 +1,10 @@
-import React  from 'react'
-import {useParams} from 'react-router-dom'
+import React from 'react'
+import { Page, PageTitle } from '../theme/SharedComponents'
 
-const PlantsForm: React.FC = () => {
-  let { plantUid } = useParams()
-  return <h1>Hello PlantsForm for {plantUid}</h1>
-}
+const PlantsForm: React.FC = () => (
+  <Page>
+    <PageTitle>Add New Plant</PageTitle>
+  </Page>
+)
 
 export default PlantsForm
