@@ -1,8 +1,7 @@
 import React from 'react'
 import { Plant } from '../types'
-import { Button } from '../theme/SharedComponents'
-import styled from "@emotion/styled";
-import colors from "../theme/colors";
+import { Button, colors } from '../theme'
+import styled from '@emotion/styled'
 
 const Table = styled.table`
   th {
@@ -19,35 +18,36 @@ const Table = styled.table`
       width: 100%;
     }
   }
+  tr:hover {
+    background-color: #fafafa;
+  }
 `
-
 
 interface PlantsTableProps {
   plants: Plant[]
+  onDelete: (plant: Plant) => void
 }
 
-const PlantsTable: React.FC<PlantsTableProps> = (props: PlantsTableProps) => {
-  const { plants } = props
-  return (
-    <Table cellPadding={0} cellSpacing={0}>
-      <thead>
-        <tr>
-          <th>Plant Name</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {plants.map((plant, i) => (
-          <tr key={i}>
-            <td>{plant.name}</td>
-            <td>
-              <Button>Delete</Button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </Table>
-  )
-}
+const PlantsTable: React.FC<PlantsTableProps> = ({ plants, onDelete }) => (
+  <Table cellPadding={0} cellSpacing={0}>
+    <thead>
+    <tr>
+      <th>Plant Name</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {plants.map((plant, i) => (
+      <tr key={i}>
+        <td>{plant.name}</td>
+        <td>
+          <Button onClick={() => onDelete(plant)}>Delete</Button>
+        </td>
+      </tr>
+    ))}
+    </tbody>
+  </Table>
+)
+
 
 export default PlantsTable

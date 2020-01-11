@@ -5,12 +5,14 @@ import {
   HorizontalLine,
   Button,
   ButtonPrimary,
-} from '../theme/SharedComponents'
+  Flex,
+} from '../theme'
 import PlantsForm from '../components/PlantsForm'
 import PlantsService from '../services/PlantsService'
 import Success from '../components/Success'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
+import Loader from '../components/Loader'
 
 const SavedContainer = styled.div`
   text-align: center;
@@ -32,16 +34,23 @@ const NewPlantsPage: React.FC = () => {
           <Button onClick={() => setSaved(false)}>Add Another</Button>
         </SavedContainer>
       ) : (
-        <PlantsForm
-          onSave={async plant => {
-            setSaving(true)
-            PlantsService.create(plant).then(() => {
-              setSaving(false)
-              setSaved(true)
-            })
-          }}
-          saving={saving}
-        />
+        <>
+          {saving ? (
+            <Flex alignItems="center" justifyContent="center">
+              <Loader />
+            </Flex>
+          ) : (
+            <PlantsForm
+              onSave={async plant => {
+                setSaving(true)
+                PlantsService.create(plant).then(() => {
+                  setSaving(false)
+                  setSaved(true)
+                })
+              }}
+            />
+          )}
+        </>
       )}
     </SmallPage>
   )

@@ -1,4 +1,4 @@
-const colors = {
+export const colors = {
   appBg: '#fafafa',
   pageBg: '#fff',
   rightPanelBg: 'rgba(255, 255, 255, 0.95)',
@@ -21,5 +21,3 @@ const colors = {
   buttonSuccessBg: '#00BFA5',
   buttonSuccessBgHover: '#00796B',
 }
-
-export default colors

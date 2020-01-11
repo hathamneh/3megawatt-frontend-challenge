@@ -1,10 +1,18 @@
 export interface Config {
   api_url: string
+  plant_per_page: number
 }
 
 export interface Plant {
   uid?: string
   name: string
+}
+
+export interface PlantsResponse {
+  count: number
+  next?: string
+  previous?: string
+  results: Plant[]
 }
 
 export interface Datapoint {

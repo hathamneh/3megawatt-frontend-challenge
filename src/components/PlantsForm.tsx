@@ -7,19 +7,16 @@ import {
   MutedSpan,
   ButtonPrimary,
   ErrorMsg,
-} from '../theme/SharedComponents'
+} from '../theme'
 
 interface PlantsFromProps {
   onSave: (plant: Plant) => void
-  saving: boolean
 }
 
-const plantDefault: Plant = { name: '' }
-
 const PlantsForm: React.FC<PlantsFromProps> = (props: PlantsFromProps) => {
-  const [plant, setPlant] = useState(plantDefault)
+  const [plant, setPlant] = useState<Plant>({ name: '' })
   const [error, setError] = useState(false)
-  const { onSave, saving } = props
+  const { onSave } = props
 
   const validate = (val: string) => {
     if (val === '') {
@@ -33,7 +30,7 @@ const PlantsForm: React.FC<PlantsFromProps> = (props: PlantsFromProps) => {
     validate(plant.name)
     if (!error) {
       onSave(plant)
-      setPlant(plantDefault)
+      setPlant({ name: '' })
     }
   }
 
@@ -57,7 +54,7 @@ const PlantsForm: React.FC<PlantsFromProps> = (props: PlantsFromProps) => {
         />
         {error && <ErrorMsg>The plant name is required.</ErrorMsg>}
       </FormGroup>
-      <ButtonPrimary disabled={saving} onClick={() => onSubmit()}>
+      <ButtonPrimary onClick={() => onSubmit()}>
         Add Plant
       </ButtonPrimary>
     </div>

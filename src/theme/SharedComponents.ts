@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
-import colors from './colors'
+import { colors } from './colors'
+import { HTMLAttributes } from 'react'
 
 export const Button = styled.button`
   appearance: none;
@@ -107,4 +108,18 @@ export const MutedSpan = styled.span`
 export const HorizontalLine = styled.hr`
   border: 1px solid ${colors.divider};
   margin: 8px 0 24px;
+`
+
+
+interface FlexProps extends HTMLAttributes<HTMLDivElement> {
+  column?: boolean
+  justifyContent?: string
+  alignItems?: string
+}
+
+export const Flex = styled.div<FlexProps>`
+  display: flex;
+  flex-direction: ${props => (props.column ? 'column' : 'row')};
+  justify-content: ${props => props.justifyContent};
+  align-items: ${props => props.alignItems};
 `
