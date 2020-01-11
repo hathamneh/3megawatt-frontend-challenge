@@ -6,7 +6,7 @@ import BgEffect from './components/BgEffect'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Reports from './pages/reports'
 import PlantsPage from './pages/plants-page'
-import PlantsForm from './pages/plants-form'
+import NewPlantsPage from './pages/new-plants-page'
 
 const AppContainer = styled.div`
   background-color: ${colors.appBg};
@@ -17,6 +17,7 @@ const Content = styled.main`
   position: relative;
   flex: 1;
   padding: 32px;
+  display:flex;
 `
 
 const App: React.FC = () => (
@@ -32,7 +33,7 @@ const App: React.FC = () => (
           <Route
             path="/plants/new"
             exact
-            component={() => <PlantsForm />}
+            component={() => <NewPlantsPage />}
           />
         </Switch>
       </Content>

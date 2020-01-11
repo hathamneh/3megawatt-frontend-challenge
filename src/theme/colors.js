@@ -6,10 +6,17 @@ const colors = {
   divider: '#efefef',
   headingTitle: '#555',
   white: '#fff',
+  muted: '#999',
+  primary: '#2196F3',
+  danger: '#f44336',
 
   buttonBg: '#e0e0e0',
   buttonBgHover: '#d5d5d5',
-  buttonHoverShadow: '0px 2px 4px -1px rgba(80,80,80, 0.2), 0px 4px 5px 0px rgba(80,80,80, 0.14), 0px 1px 10px 0px rgba(80,80,80, 0.12)',
+  buttonHoverShadow:
+    '0px 2px 4px -1px rgba(80,80,80, 0.2), 0px 4px 5px 0px rgba(80,80,80, 0.14), 0px 1px 10px 0px rgba(80,80,80, 0.12)',
+
+  buttonPrimaryBg: '#2196F3',
+  buttonPrimaryBgHover: '#1565C0',
 
   buttonSuccessBg: '#00BFA5',
   buttonSuccessBgHover: '#00796B',

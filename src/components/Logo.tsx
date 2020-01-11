@@ -11,7 +11,7 @@ const LogoContainer = styled.div`
 
 const Logo: React.FC = () => (
   <LogoContainer>
-    <img src="/logo.png" alt="" />
+    <img src="/assets/logo.png" alt="" />
   </LogoContainer>
 )
 

@@ -1,6 +1,26 @@
 import React from 'react'
 import { Plant } from '../types'
-import { Button, Table } from '../theme/SharedComponents'
+import { Button } from '../theme/SharedComponents'
+import styled from "@emotion/styled";
+import colors from "../theme/colors";
+
+const Table = styled.table`
+  th {
+    background-color: ${colors.appBg};
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 8px 16px;
+  }
+  td {
+    border-top: 1px solid ${colors.divider};
+    &:first-of-type {
+      width: 100%;
+    }
+  }
+`
+
 
 interface PlantsTableProps {
   plants: Plant[]

@@ -13,18 +13,34 @@ export const Button = styled.button`
   cursor: pointer;
   line-height: 1.75;
   text-transform: uppercase;
+  user-select: none;
   transition: all 0.25s;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: ${colors.buttonBgHover};
     box-shadow: ${colors.buttonHoverShadow};
+  }
+  &:focus,
+  &:active {
+    outline: none;
   }
 `
 
 export const ButtonSuccess = styled(Button)`
   background-color: ${colors.buttonSuccessBg};
   color: ${colors.white};
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: ${colors.buttonSuccessBgHover};
+  }
+`
+
+export const ButtonPrimary = styled(Button)`
+  background-color: ${colors.buttonPrimaryBg};
+  color: ${colors.white};
+  &:hover,
+  s&:focus {
+    background-color: ${colors.buttonPrimaryBgHover};
   }
 `
 
@@ -33,6 +49,13 @@ export const Page = styled.div`
   padding: 32px;
   border-radius: 16px;
   box-shadow: 0 0 20px rgba(160, 160, 160, 0.25);
+  flex: 1;
+  align-self: flex-start;
+`
+
+export const SmallPage = styled(Page)`
+  max-width: 600px;
+  margin: 0 auto;
 `
 
 export const PageTitle = styled.h1`
@@ -42,19 +65,46 @@ export const PageTitle = styled.h1`
   margin-bottom: 32px;
 `
 
-export const Table = styled.table`
-  th {
-    background-color: ${colors.appBg};
+export const TextInput = styled.input`
+  padding: 6px 16px;
+  line-height: 1.75;
+  background-color: ${colors.white};
+  border: 1px solid ${colors.divider};
+  border-radius: 22px;
+  font-size: 16px;
+  transition: all 0.25s;
+  &:focus,
+  &:active {
+    outline: none;
+    border-color: ${colors.primary};
   }
-  th,
-  td {
-    text-align: left;
-    padding: 8px 16px;
+  &.error {
+    border-color: ${colors.danger};
   }
-  td {
-    border-top: 1px solid ${colors.divider};
-    &:first-child {
-      width: 100%;
-    }
-  }
+`
+
+export const ErrorMsg = styled.span`
+  color: ${colors.danger};
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 16px;
+`
+
+export const Label = styled.label`
+  margin-right: 16px;
+`
+
+export const FormGroup = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+`
+
+export const MutedSpan = styled.span`
+  color: ${colors.muted};
+`
+
+export const HorizontalLine = styled.hr`
+  border: 1px solid ${colors.divider};
+  margin: 8px 0 24px;
 `

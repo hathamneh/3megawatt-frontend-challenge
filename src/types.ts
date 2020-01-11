@@ -3,7 +3,7 @@ export interface Config {
 }
 
 export interface Plant {
-  uid: string
+  uid?: string
   name: string
 }
 
