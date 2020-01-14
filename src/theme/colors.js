@@ -8,7 +8,11 @@ export const colors = {
   white: '#fff',
   muted: '#999',
   primary: '#2196F3',
+  success: '#00BFA5',
   danger: '#f44336',
+  dark: '#0f416b',
+
+  focusShadow: 'rgba(33, 150, 243, 0.25)',
 
   buttonBg: '#e0e0e0',
   buttonBgHover: '#d5d5d5',

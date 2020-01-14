@@ -5,6 +5,7 @@ import { colors, Flex } from '../theme'
 
 interface PaginationProps {
   total: number
+  baseUrl: string
 }
 
 const PaginationList = styled.ul`
@@ -27,13 +28,13 @@ const PaginationLink = styled(NavLink)`
   }
 `
 
-const Pagination: React.FC<PaginationProps> = ({ total }) => {
+const Pagination: React.FC<PaginationProps> = ({ total, baseUrl }) => {
   const links: string[] = []
   for (let i = 1; i <= total; i++) {
-    links.push(`/plants/${i}`)
+    links.push(`${baseUrl}/${i}`)
   }
   return (
-    <Flex style={{alignItems: 'center'}}>
+    <Flex style={{ alignItems: 'center' }}>
       Page:
       <PaginationList>
         {links.map((link, i) => (

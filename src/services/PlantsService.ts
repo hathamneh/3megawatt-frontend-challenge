@@ -4,12 +4,19 @@ import config from '../config'
 
 const plantsEndPoint = 'plants'
 
-class PlantsService {
-  static get(page?: number): Promise<PlantsResponse> {
-    let offset = 0
-    if (page) offset = page * config.plant_per_page
+interface GetPlantsOptions {
+  page?: number
+  limit?: number
+}
 
-    return API.get(plantsEndPoint, { params: { offset } }).then(response => {
+export class PlantsService {
+  static get(options?: GetPlantsOptions): Promise<PlantsResponse> {
+    const { page, limit } = options || {}
+    const params = { offset: 0, limit: config.plant_per_page }
+    if (page) params.offset = page * config.plant_per_page
+    if (limit) params.limit = limit
+
+    return API.get(plantsEndPoint, { params }).then(response => {
       return response.data
     })
   }
@@ -30,5 +37,3 @@ class PlantsService {
       .catch(() => false)
   }
 }
-
-export default PlantsService

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import {colors} from "../theme";
+import { colors } from '../theme'
 
 const LoaderContainer = styled.div`
   display: inline-block;
@@ -8,6 +8,14 @@ const LoaderContainer = styled.div`
   width: 80px;
   height: 80px;
   margin: 64px 0;
+  &.inline {
+    height: 36px;
+    margin: 0 14px;
+    vertical-align: middle;
+    div {
+      top: 10px;
+    }
+  }
   div {
     position: absolute;
     top: 33px;
@@ -17,19 +25,19 @@ const LoaderContainer = styled.div`
     background: ${colors.primary};
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
-  div:nth-child(1) {
+  div:nth-of-type(1) {
     left: 8px;
     animation: lds-ellipsis1 0.6s infinite;
   }
-  div:nth-child(2) {
+  div:nth-of-type(2) {
     left: 8px;
     animation: lds-ellipsis2 0.6s infinite;
   }
-  div:nth-child(3) {
+  div:nth-of-type(3) {
     left: 32px;
     animation: lds-ellipsis2 0.6s infinite;
   }
-  div:nth-child(4) {
+  div:nth-of-type(4) {
     left: 56px;
     animation: lds-ellipsis3 0.6s infinite;
   }
@@ -59,8 +67,12 @@ const LoaderContainer = styled.div`
   }
 `
 
-const Loader = () => (
-  <LoaderContainer>
+interface LoaderProps {
+  inline?: boolean
+}
+
+const Loader: React.FC<LoaderProps> = ({ inline }) => (
+  <LoaderContainer className={inline ? 'inline' : ''}>
     <div />
     <div />
     <div />

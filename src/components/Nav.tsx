@@ -38,8 +38,8 @@ const NavLinkStyled = styled(NavLink)`
 
 const Nav: React.FC = () => (
   <NavContainer>
-    <NavLinkStyled exact activeClassName="active" to="/">Reports</NavLinkStyled>
-    <NavLinkStyled exact activeClassName="active" to="/plants">All Plants</NavLinkStyled>
+    <NavLinkStyled exact activeClassName="active" to="/">Dashboard</NavLinkStyled>
+    <NavLinkStyled activeClassName="active" to="/plants/list">All Plants</NavLinkStyled>
     <NavLinkStyled exact activeClassName="active" to="/plants/new">Add New Plant</NavLinkStyled>
   </NavContainer>
 )

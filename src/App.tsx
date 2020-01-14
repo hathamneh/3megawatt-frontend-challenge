@@ -1,10 +1,10 @@
 import React from 'react'
 import Menu from './components/Menu'
-import { breakpoints, colors } from './theme'
+import { breakpoints, colors, Page } from './theme'
 import styled from '@emotion/styled'
 import BgEffect from './components/BgEffect'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Reports from './pages/reports'
+import DashboardPage from './pages/dashboard-page'
 import PlantsPage from './pages/plants-page'
 import NewPlantsPage from './pages/new-plants-page'
 
@@ -16,26 +16,19 @@ const AppContainer = styled.div`
   }
 `
 
-const Content = styled.main`
-  position: relative;
-  flex: 1;
-  padding: 32px;
-  display: flex;
-`
-
 const App: React.FC = () => (
   <BrowserRouter>
     <AppContainer>
       <BgEffect />
       <Menu />
 
-      <Content>
+      <Page>
         <Switch>
-          <Route path="/" exact component={() => <Reports />} />
+          <Route path="/" exact component={() => <DashboardPage />} />
           <Route path="/plants/new" exact component={() => <NewPlantsPage />} />
-          <Route path="/plants/:page?" exact component={() => <PlantsPage />} />
+          <Route path="/plants/list/:page?" exact component={() => <PlantsPage />} />
         </Switch>
-      </Content>
+      </Page>
     </AppContainer>
   </BrowserRouter>
 )

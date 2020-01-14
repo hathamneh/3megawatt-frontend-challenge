@@ -10,14 +10,13 @@ const RightPanelContainer = styled.div`
   height: 100vh;
   background-color: ${colors.rightPanelBg};
   box-shadow: ${colors.boxShadow};
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 99;
   @media screen and (max-width: ${breakpoints.md}px) {
     width: 100%;
     height: 90px;
     min-height: 0;
-    position: sticky;
-    top: 0;
-    z-index: 99;
   }
 `
 

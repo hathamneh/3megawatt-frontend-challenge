@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PlantsTable from '../components/PlantsTable'
-import PlantsService from '../services/PlantsService'
-import { ButtonSuccess, Page, PageTitle, Flex } from '../theme'
+import { PlantsService } from '../services'
+import { ButtonSuccess, Section, SectionTitle, Flex } from '../theme'
 import styled from '@emotion/styled'
 import { Link, useParams } from 'react-router-dom'
 import { Plant } from '../types'
@@ -24,28 +24,29 @@ const PlantsPage: React.FC = () => {
   const { page } = useParams()
 
   useEffect(() => {
-    const fetchData = async () => {
-      const pageNumber = page ? parseInt(page) - 1 : 0
-      const plantsRes = await PlantsService.get(pageNumber)
+    const pageNumber = page ? parseInt(page) - 1 : 0
+
+    setLoading(true)
+    PlantsService.get({ page: pageNumber }).then(plantsRes => {
       setPlants(plantsRes.results)
       setPageNumbers(Math.ceil(plantsRes.count / config.plant_per_page))
-    }
-    setLoading(true)
-    fetchData().then(() => {
+
       setLoading(false)
     })
   }, [page])
 
   return (
-    <Page>
-      <PageTitle>All Plants</PageTitle>
+    <Section>
+      <SectionTitle>All Plants</SectionTitle>
       <Flex>
         <Link to={'/plants/new'}>
           <NewPlantButton>+ Add New Plant</NewPlantButton>
         </Link>
-        <PaginationWrapper>
-          <Pagination total={pageNumbers} />
-        </PaginationWrapper>
+        {!loading && pageNumbers && (
+          <PaginationWrapper>
+            <Pagination total={pageNumbers} baseUrl={'/plants/list'} />
+          </PaginationWrapper>
+        )}
       </Flex>
       {loading ? (
         <Flex alignItems="center" justifyContent="center">
@@ -62,7 +63,7 @@ const PlantsPage: React.FC = () => {
           }}
         />
       )}
-    </Page>
+    </Section>
   )
 }
 

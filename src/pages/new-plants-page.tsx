@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import {
   SmallPage,
-  PageTitle,
+  SectionTitle,
   HorizontalLine,
   Button,
   ButtonPrimary,
   Flex,
 } from '../theme'
 import PlantsForm from '../components/PlantsForm'
-import PlantsService from '../services/PlantsService'
+import {PlantsService} from '../services'
 import Success from '../components/Success'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
@@ -23,7 +23,7 @@ const NewPlantsPage: React.FC = () => {
   const [saved, setSaved] = useState(false)
   return (
     <SmallPage>
-      <PageTitle>Add New Plant</PageTitle>
+      <SectionTitle>Add New Plant</SectionTitle>
       <HorizontalLine />
       {saved ? (
         <SavedContainer>
