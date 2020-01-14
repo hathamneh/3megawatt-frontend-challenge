@@ -1,4 +1,4 @@
-#3Megawatt Code Challenge
+# 3Megawatt Code Challenge
 
 ![](demo.gif)
 
