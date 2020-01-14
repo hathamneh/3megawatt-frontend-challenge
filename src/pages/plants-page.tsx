@@ -23,7 +23,7 @@ const PlantsPage: React.FC = () => {
   const [pageNumbers, setPageNumbers] = useState(1)
   const { page } = useParams()
 
-  useEffect(() => {
+  const reloadPlants = () => {
     const pageNumber = page ? parseInt(page) - 1 : 0
 
     setLoading(true)
@@ -33,7 +33,9 @@ const PlantsPage: React.FC = () => {
 
       setLoading(false)
     })
-  }, [page])
+  }
+
+  useEffect(reloadPlants, [page])
 
   return (
     <Section>
@@ -42,7 +44,7 @@ const PlantsPage: React.FC = () => {
         <Link to={'/plants/new'}>
           <NewPlantButton>+ Add New Plant</NewPlantButton>
         </Link>
-        {!loading && pageNumbers && (
+        {!loading && pageNumbers > 1 && (
           <PaginationWrapper>
             <Pagination total={pageNumbers} baseUrl={'/plants/list'} />
           </PaginationWrapper>
@@ -59,6 +61,7 @@ const PlantsPage: React.FC = () => {
             const uid: string = plant.uid || ''
             PlantsService.drop(uid).then(() => {
               setPlants(plants.filter(p => p.uid !== uid))
+              reloadPlants()
             })
           }}
         />

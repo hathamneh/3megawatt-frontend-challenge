@@ -17,6 +17,7 @@ export const Button = styled.button`
   text-transform: uppercase;
   user-select: none;
   transition: all 0.25s;
+  white-space: nowrap;
   &:not(:disabled) {
     &:hover,
     &:focus {

@@ -28,7 +28,7 @@ const NewPlantsPage: React.FC = () => {
       {saved ? (
         <SavedContainer>
           <Success message={'Saved!'} />
-          <Link style={{ marginRight: '16px' }} to={'/plants'}>
+          <Link style={{ marginRight: '16px' }} to={'/plants/list'}>
             <ButtonPrimary>Show All Plants</ButtonPrimary>
           </Link>
           <Button onClick={() => setSaved(false)}>Add Another</Button>

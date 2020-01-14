@@ -31,7 +31,7 @@ const PaginationLink = styled(NavLink)`
 const Pagination: React.FC<PaginationProps> = ({ total, baseUrl }) => {
   const links: string[] = []
   for (let i = 1; i <= total; i++) {
-    links.push(`${baseUrl}/${i}`)
+    links.push(`${baseUrl}/${i > 1 ? i : ''}`)
   }
   return (
     <Flex style={{ alignItems: 'center' }}>
@@ -39,7 +39,7 @@ const Pagination: React.FC<PaginationProps> = ({ total, baseUrl }) => {
       <PaginationList>
         {links.map((link, i) => (
           <PaginationItem key={i}>
-            <PaginationLink activeClassName="active" to={link}>
+            <PaginationLink exact activeClassName="active" to={link}>
               {i + 1}
             </PaginationLink>
           </PaginationItem>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Plant } from '../types'
 import { Button, colors } from '../theme'
 import styled from '@emotion/styled'
+import DeleteConfirmation from "./DeleteConfirmation";
 
 const Table = styled.table`
   th {
@@ -41,7 +42,7 @@ const PlantsTable: React.FC<PlantsTableProps> = ({ plants, onDelete }) => (
       <tr key={i}>
         <td>{plant.name}</td>
         <td>
-          <Button onClick={() => onDelete(plant)}>Delete</Button>
+          <DeleteConfirmation onDelete={() => onDelete(plant)}/>
         </td>
       </tr>
     ))}
