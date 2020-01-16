@@ -1,6 +1,6 @@
 import React from 'react'
 import { Plant } from '../types'
-import { Button, colors } from '../theme'
+import { colors } from '../theme'
 import styled from '@emotion/styled'
 import DeleteConfirmation from "./DeleteConfirmation";
 
@@ -34,7 +34,7 @@ const PlantsTable: React.FC<PlantsTableProps> = ({ plants, onDelete }) => (
     <thead>
     <tr>
       <th>Plant Name</th>
-      <th></th>
+      <th/>
     </tr>
     </thead>
     <tbody>
