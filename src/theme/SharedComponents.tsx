@@ -220,9 +220,10 @@ export const Select: React.FC<SelectProps> = ({
   onChange,
   error,
   value,
+  id
 }) => (
-  <SelectWrapper>
-    <select value={value} className={error ? 'error' : ''} onChange={onChange}>
+  <SelectWrapper id="">
+    <select id={id} value={value} className={error ? 'error' : ''} onChange={onChange}>
       {children}
     </select>
   </SelectWrapper>

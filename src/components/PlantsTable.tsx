@@ -39,7 +39,7 @@ const PlantsTable: React.FC<PlantsTableProps> = ({ plants, onDelete }) => (
     </thead>
     <tbody>
     {plants.map((plant, i) => (
-      <tr key={i}>
+      <tr key={i} data-id={plant.uid}>
         <td>{plant.name}</td>
         <td>
           <DeleteConfirmation onDelete={() => onDelete(plant)}/>

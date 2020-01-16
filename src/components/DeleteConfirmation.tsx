@@ -20,6 +20,7 @@ const DeleteConfirmation: React.FC<DeleteConfirmationProps> = ({
               setDeleting(true)
               onDelete()
             }}
+            className="confirm-delete-button"
           >
             Yes, delete.
           </ButtonPrimary>
@@ -28,7 +29,7 @@ const DeleteConfirmation: React.FC<DeleteConfirmationProps> = ({
           </Button>
         </>
       ) : (
-        <Button onClick={() => setConfirming(true)}>Delete</Button>
+        <Button className="delete-button" onClick={() => setConfirming(true)}>Delete</Button>
       )}
     </Flex>
   )

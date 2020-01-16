@@ -16,7 +16,7 @@ import Loader from './Loader'
 interface UpdateDatapointsProps {
   plants: Plant[]
   onUpdate: (params: UpdateDatapointsParams) => void
-  loading: boolean
+  loading?: boolean
   error?: string
   success?: boolean
 }
@@ -60,8 +60,9 @@ const UpdateDatapoint: React.FC<UpdateDatapointsProps> = ({
   return (
     <UpdateDatapointWrapper>
       <FormGroup>
-        <Label>Plant:</Label>
+        <Label htmlFor="plant">Plant:</Label>
         <Select
+          id="plant"
           onChange={e => {
             if (e.target.value !== '') {
               const index: number = parseInt(e.target.value)
@@ -98,7 +99,9 @@ const UpdateDatapoint: React.FC<UpdateDatapointsProps> = ({
       </ButtonPrimary>
       {loading && <Loader inline={true} />}
       {error && <ErrorMsg>{error}</ErrorMsg>}
-      {success && <SuccessMsg>Points have been updated successfully!</SuccessMsg>}
+      {success && (
+        <SuccessMsg>Points have been updated successfully!</SuccessMsg>
+      )}
     </UpdateDatapointWrapper>
   )
 }
